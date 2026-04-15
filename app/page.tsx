@@ -131,8 +131,7 @@ const token = CONTRACTS[selectedToken as keyof typeof CONTRACTS];
               {/* Token Selector */}
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
                 {["USDC", "EURC"].map((t) => {
-                  const c = CONTRACTS[t];
-                  const bal = t === "USDC" ? usdcBalance : eurcBalance;
+const c = CONTRACTS[t as keyof typeof CONTRACTS];                  const bal = t === "USDC" ? usdcBalance : eurcBalance;
                   const selected = selectedToken === t;
                   return (
                     <button
