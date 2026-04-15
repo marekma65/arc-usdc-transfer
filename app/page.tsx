@@ -35,8 +35,7 @@ export default function Home() {
   const [isSending, setIsSending] = useState(false);
   const [toast, setToast] = useState<{ type: "success" | "error"; message: string } | null>(null);
 
-  const token = CONTRACTS[selectedToken];
-
+const token = CONTRACTS[selectedToken as keyof typeof CONTRACTS];
   const { data: usdcBalance } = useBalance({ address, token: CONTRACTS.USDC.address as `0x${string}` });
   const { data: eurcBalance } = useBalance({ address, token: CONTRACTS.EURC.address as `0x${string}` });
   const { writeContractAsync } = useWriteContract();
